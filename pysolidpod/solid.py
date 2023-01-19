@@ -152,7 +152,6 @@ class api:
         return r
 
     def get(self,url,headers={},timeout=False):
-        r = ''
         if timeout:
             r = self.client.get(url,headers=headers,cookies=self.cookies,timeout=timeout)
         else:
