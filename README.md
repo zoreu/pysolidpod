@@ -41,10 +41,14 @@ solid.create_folder('https://yourpod.inrupt.net/public/new_folder/sub_folder/sub
 
 ## upload files
 ```python
-solid.upload('https://yourpod.inrupt.net/public', 'filename.pdf')
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+file_path = os.path.join(dir_path, 'example.pdf')
+solid.upload('https://yourpod.inrupt.net/public', file_path)
 
 # upload in replace mode
-solid.upload('https://yourpod.inrupt.net/public', 'filename.pdf', replace=True)
+solid.upload('https://yourpod.inrupt.net/public', file_path, replace=True)
 ```
 
 ## delete links
