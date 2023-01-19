@@ -1,6 +1,9 @@
 # pysolidpod
 this package helps you to manage files in your solid pod
 
+# get solid pod
+https://solidproject.org/users/get-a-pod
+
 
 # Installation
 
