@@ -149,4 +149,12 @@ class api:
             print('successfully deleted!')
         except:
             print('delete fail!')
-        return r  
+        return r
+
+    def get(self,url,headers={},timeout=False):
+        r = ''
+        if timeout:
+            r = self.client.get(url,headers=headers,cookies=self.cookies,timeout=timeout)
+        else:
+            r = self.client.get(url,headers=headers,cookies=self.cookies)
+        return r

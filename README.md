@@ -63,3 +63,15 @@ items = solid.read_folder('https://yourpod.inrupt.net/public/')
 # show links
 items = solid.read_folder('https://yourpod.inrupt.net/public/', show_links=True)
 ```
+
+## get file
+```python
+r = solid.get('https://yourpod.inrupt.net/private/example.txt')
+print(r.text) # example text
+```
+
+## folders
+
+private - display files only with login
+
+public - show files to everyone
