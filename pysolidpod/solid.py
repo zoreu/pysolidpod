@@ -71,26 +71,27 @@ class api:
             url = path + quote_plus(os.path.basename(filename))
         r = ''
         mime_type = mimetypes.guess_type(filename)[0]
-        if not os.path.exists(filename):
-            dir_path = os.path.dirname(os.path.realpath(__file__))
-            filename = os.path.join(dir_path, os.path.basename(filename))
-        headers = {'Link': '<http://www.w3.org/ns/ldp#Resource>; rel="type"', 'Content-Type': mime_type}           
-        if replace==True:
-            with open(filename, 'rb') as file:
-                try:
-                    r = self.client.put(url,headers=headers,data=file,cookies=self.cookies)
-                    print('upload successful!')
-                except:
-                    print('upload fail!')
-        elif not self.exists(url) and replace==False:
-            with open(filename, 'rb') as file:
-                try:
-                    r = self.client.put(url,headers=headers,data=file,cookies=self.cookies)
-                    print('upload successful!')
-                except:
-                    print('upload fail!')
+        if os.path.exists(filename):
+            headers = {'Link': '<http://www.w3.org/ns/ldp#Resource>; rel="type"', 'Content-Type': mime_type}           
+            if replace==True:
+                with open(filename, 'rb') as file:
+                    try:
+                        r = self.client.put(url,headers=headers,data=file,cookies=self.cookies)
+                        print('upload successful!')
+                    except:
+                        print('upload fail!')
+            elif not self.exists(url) and replace==False:
+                with open(filename, 'rb') as file:
+                    try:
+                        r = self.client.put(url,headers=headers,data=file,cookies=self.cookies)
+                        print('upload successful!')
+                    except:
+                        print('upload fail!')
+            else:
+                print('file exists!')
         else:
-            print('file exists!')
+            print('could not find %s'%filename)
+            print('specify the full file path')
         return r
     
     def create_folder(self,url):
