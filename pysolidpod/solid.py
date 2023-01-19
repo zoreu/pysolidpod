@@ -63,12 +63,11 @@ class api:
         return r
 
     def upload(self,path,filename,replace=False):
-        if not self.exists(path):
-            self.create_folder(path)
         if not '/' in path[-1]:
-            url = path + '/' + quote_plus(os.path.basename(filename))
-        else:      
-            url = path + quote_plus(os.path.basename(filename))
+            path += '/'
+        if not self.exists(path):
+            self.create_folder(path)     
+        url = path + quote_plus(os.path.basename(filename))
         r = ''
         mime_type = mimetypes.guess_type(filename)[0]
         if os.path.exists(filename):
