@@ -54,7 +54,7 @@ solid.delete('https://yourpod.inrupt.net/public/file.txt')
 
 #delete folder
 solid.delete('https://yourpod.inrupt.net/public/folder/')
-# warning: solid does not allow deleting folders directly containing files
+# notice: solid does not allow deleting folders directly containing files
 ```
 
 ## read folder
