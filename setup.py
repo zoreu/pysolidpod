@@ -13,7 +13,7 @@ with open("requirements.txt") as f:
     requirements = [r.strip() for r in f]
 
 
-scrapetube_classifiers = [
+_classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3",
     "Intended Audience :: Developers",
@@ -32,7 +32,7 @@ setup(name="pysolidpod",
     description="Solid pod in python",
     long_description=readme,
     license="MIT",
-    classifiers=scrapetube_classifiers,
+    classifiers=_classifiers,
     install_requires=requirements,
     python_requires=">=3.0",
     )
